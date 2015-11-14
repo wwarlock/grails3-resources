@@ -5,7 +5,7 @@ import grails.test.mixin.TestFor
 import org.junit.Before
 
 import org.grails.plugin.resource.util.HalfBakedLegacyLinkGenerator
-import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.grails.taglib.GrailsTagException
 
 @TestFor(ResourceTagLib)
 class ResourceTagLibTests {

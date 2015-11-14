@@ -1,7 +1,7 @@
 package org.grails.plugin.resource.util
 
-import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
-import org.codehaus.groovy.grails.commons.GrailsApplication
+import grails.core.support.GrailsApplicationAware
+import grails.core.GrailsApplication
 import grails.util.Environment
 
 /**

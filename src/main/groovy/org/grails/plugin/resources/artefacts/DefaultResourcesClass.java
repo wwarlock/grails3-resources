@@ -1,6 +1,6 @@
 package org.grails.plugin.resources.artefacts;
 
-import org.codehaus.groovy.grails.commons.*;
+import org.grails.core.AbstractGrailsClass;
 
 /**
  * @author Luke Daley (ld@ldaley.com)

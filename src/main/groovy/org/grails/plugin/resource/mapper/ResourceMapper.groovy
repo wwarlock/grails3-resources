@@ -1,6 +1,5 @@
 package org.grails.plugin.resource.mapper
 
-import org.codehaus.groovy.grails.*
 import org.grails.plugin.resources.artefacts.ResourceMapperArtefactHandler
 import org.grails.plugin.resource.ResourceMeta
 import org.springframework.util.AntPathMatcher

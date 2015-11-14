@@ -1,9 +1,9 @@
 package org.grails.plugin.resource
 
 import grails.test.spock.IntegrationSpec
-import org.codehaus.groovy.grails.commons.GrailsApplication
-import org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletRequest
-import org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse
+import grails.core.GrailsApplication
+import org.grails.plugins.testing.GrailsMockHttpServletRequest
+import org.grails.plugins.testing.GrailsMockHttpServletResponse
 
 class LegacyResourceIntegrationSpec extends IntegrationSpec {
     

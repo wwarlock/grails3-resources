@@ -2,7 +2,7 @@ package org.grails.plugin.resource
 
 import grails.util.GrailsUtil
 import org.apache.commons.io.FilenameUtils
-import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.grails.taglib.GrailsTagException
 import org.grails.plugin.resource.util.DispositionsUtils
 import org.grails.plugin.resources.stash.StashManager
 
