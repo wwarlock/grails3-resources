@@ -70,3 +70,10 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
 }
+
+test {
+    testLogging {
+        // Enabling `System.out` output
+        showStandardStreams = true
+    }
+}
