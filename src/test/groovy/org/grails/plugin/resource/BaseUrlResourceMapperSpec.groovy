@@ -1,9 +1,11 @@
 package org.grails.plugin.resource
 
+import spock.lang.Shared
 import spock.lang.Specification
 
 class BaseUrlResourceMapperSpec extends Specification {
 
+    @Shared
     def mapper
 
     def setup(){

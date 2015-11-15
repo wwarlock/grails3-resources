@@ -4,16 +4,21 @@ import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse
-import org.springframework.mock.web.MockServletContext;
-
+import org.springframework.mock.web.MockServletContext
+import spock.lang.Shared;
 import spock.lang.Specification
 import spock.lang.Unroll
 
 class ResourceProcessorSpec extends Specification {
     @Rule public TemporaryFolder temporaryFolder = new TemporaryFolder()
+
+    @Shared
     ResourceProcessor resourceProcessor
+    @Shared
     MockHttpServletRequest request
+    @Shared
     MockHttpServletResponse response
+    @Shared
     ConfigObject config
     
     def setup() {

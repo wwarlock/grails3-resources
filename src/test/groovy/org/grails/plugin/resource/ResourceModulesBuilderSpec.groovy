@@ -5,10 +5,12 @@ import grails.test.mixin.support.GrailsUnitTestMixin
 
 import org.grails.plugin.resource.module.*
 import org.junit.Before
+import spock.lang.Shared
 import spock.lang.Specification
 
 @TestMixin(GrailsUnitTestMixin)
 class ResourceModulesBuilderSpec extends Specification{
+    @Shared
     def svc
 
     @Before

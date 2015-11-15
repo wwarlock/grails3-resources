@@ -1,16 +1,22 @@
 package org.grails.plugin.resource
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
+import org.junit.Before
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
+import spock.lang.Shared
+import spock.lang.Specification
 
 @TestMixin(GrailsUnitTestMixin)
-class CSSLinkProcessorTests {
+class CSSLinkProcessorSpec extends Specification {
     @Rule public TemporaryFolder temporaryFolder = new TemporaryFolder()
+
+    @Shared
     File temporarySubfolder
+    @Shared
     def mockResSvc
     
-    @org.junit.Before
+    @Before
     void setupTest() {
         temporarySubfolder = temporaryFolder.newFolder('test-tmp')
         mockResSvc = [
@@ -37,7 +43,8 @@ class CSSLinkProcessorTests {
      */
     void testCSSPreprocessing() {
 
-        def res = makeRes('css/urltests1.css', """
+        when:
+            def res = makeRes('css/urltests1.css', """
 @import '/css/style1.css';
 @import "/css/style2.css";
 @import '/css/style3.css' screen;
@@ -59,33 +66,35 @@ class CSSLinkProcessorTests {
 .bg8 { background: url(data:font/opentype;base64,ABCDEF123456789ABCDEF123456789) }
 .bg9 { background: url(//mydomain.com/protocol-relative-url) }
 """)
-        def expectedLinks = [
-            '/css/style1.css',
-            '/css/style2.css',
-            '/css/style3.css',
-            '/css/style4.css',
-            '/css/style5.css',
-            '/css/style6.css',
-            '/css/style7.css',
-            '/css/style8.css',
-            '/css/style9.css',
-            '/css/style10.css',
-            '/css/style11.css',
-            '/images/theme/bg1.png',
-            '/css/images/bg2.png',
-            '/images/bg3.png',
-            '/css/bg4.png',
-            'http://google.com/images/bg5.png',
-            'https://google.com/images/bg5.png',
-            '####BULL',
-            'data:font/opentype;base64,ABCDEF123456789ABCDEF123456789',
-            '//mydomain.com/protocol-relative-url'
-        ]
-        def cursor = 0
-        
-        def processor = new CSSLinkProcessor()
-        processor.process(res, mockResSvc) { prefix, original, suffix ->
-            assertEquals expectedLinks[cursor++], original
-        }
+            def expectedLinks = [
+                '/css/style1.css',
+                '/css/style2.css',
+                '/css/style3.css',
+                '/css/style4.css',
+                '/css/style5.css',
+                '/css/style6.css',
+                '/css/style7.css',
+                '/css/style8.css',
+                '/css/style9.css',
+                '/css/style10.css',
+                '/css/style11.css',
+                '/images/theme/bg1.png',
+                '/css/images/bg2.png',
+                '/images/bg3.png',
+                '/css/bg4.png',
+                'http://google.com/images/bg5.png',
+                'https://google.com/images/bg5.png',
+                '####BULL',
+                'data:font/opentype;base64,ABCDEF123456789ABCDEF123456789',
+                '//mydomain.com/protocol-relative-url'
+            ]
+            def cursor = 0
+
+            def processor = new CSSLinkProcessor()
+
+        then:
+            processor.process(res, mockResSvc) { prefix, original, suffix ->
+                expectedLinks[cursor++] == original
+            }
     }
 }

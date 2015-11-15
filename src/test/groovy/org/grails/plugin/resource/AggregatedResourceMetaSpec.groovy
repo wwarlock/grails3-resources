@@ -1,18 +1,24 @@
 package org.grails.plugin.resource
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
+import org.junit.Before
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
+import spock.lang.Shared
+import spock.lang.Specification
 
 @TestMixin(GrailsUnitTestMixin)
-class AggregatedResourceMetaTests {
+class AggregatedResourceMetaSpec extends Specification {
     @Rule public TemporaryFolder temporaryFolder = new TemporaryFolder()
+
+    @Shared
     File temporarySubfolder
-    
+    @Shared
     def mockResSvc
-    def module 
+    @Shared
+    def module
     
-    @org.junit.Before
+    @Before
     void setupTest() {
         temporarySubfolder = temporaryFolder.newFolder('test-tmp')
 
@@ -51,22 +57,26 @@ class AggregatedResourceMetaTests {
      * Ensure that bundle mapper updates content length and exists()
      */
     void testUpdatesMetadata() {
-        def r = new AggregatedResourceMeta()
-        
-        def r1 = makeRes('/aggtest/file1.css', "/* file 1 */")
-        def r2 = makeRes('/aggtest/file2.css', "/* file 2 */")
-        
-        r.add(r1)
-        r.add(r2)
+        when:
+            def r = new AggregatedResourceMeta()
 
-        r.sourceUrl = '/aggtest1.css'
-        assertFalse r.exists()
-        
-        r.beginPrepare(mockResSvc)
-        
-        r.endPrepare(mockResSvc)
-        
-        assertTrue r.exists()
-        assertTrue r.contentLength >= r1.contentLength + r2.contentLength
+            def r1 = makeRes('/aggtest/file1.css', "/* file 1 */")
+            def r2 = makeRes('/aggtest/file2.css', "/* file 2 */")
+
+            r.add(r1)
+            r.add(r2)
+
+            r.sourceUrl = '/aggtest1.css'
+
+        then:
+            !r.exists()
+
+        when:
+            r.beginPrepare(mockResSvc)
+            r.endPrepare(mockResSvc)
+
+        then:
+            r.exists()
+            r.contentLength >= r1.contentLength + r2.contentLength
     }
 }
