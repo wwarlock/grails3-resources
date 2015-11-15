@@ -1,14 +1,15 @@
 package org.grails.plugin.resource
 
-import grails.test.GroovyPagesTestCase
-import grails.test.mixin.integration.IntegrationTestMixin
+import grails.test.mixin.integration.Integration
+import grails.test.mixin.web.GroovyPageUnitTestMixin
 import grails.test.mixin.TestMixin
 import org.grails.plugin.resources.stash.StashManager
 import org.grails.plugin.resources.stash.StashWriter
 import org.junit.Before
 
-@TestMixin(IntegrationTestMixin)
-class ResourceTagLibIntegTests extends GroovyPagesTestCase {
+@Integration
+@TestMixin(GroovyPageUnitTestMixin)
+class ResourceTagLibIntegTests {
     def grailsResourceProcessor
 
     @Before

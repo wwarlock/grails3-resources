@@ -1,11 +1,13 @@
 package org.grails.plugin.resource
 
-import grails.test.spock.IntegrationSpec
 import grails.core.GrailsApplication
+import grails.test.mixin.integration.Integration
 import org.grails.plugins.testing.GrailsMockHttpServletRequest
 import org.grails.plugins.testing.GrailsMockHttpServletResponse
+import spock.lang.Specification
 
-class LegacyResourceIntegrationSpec extends IntegrationSpec {
+@Integration
+class LegacyResourceIntegrationSpec extends Specification {
     
     ResourceProcessor grailsResourceProcessor
     GrailsApplication grailsApplication

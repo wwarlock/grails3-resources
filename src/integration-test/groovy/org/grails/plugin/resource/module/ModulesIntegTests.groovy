@@ -1,16 +1,18 @@
 package org.grails.plugin.resource.module
 
-import grails.test.GroovyPagesTestCase
+import grails.test.mixin.integration.Integration
 import grails.test.mixin.integration.IntegrationTestMixin
 import grails.test.mixin.TestMixin
+import grails.test.mixin.web.GroovyPageUnitTestMixin
 
 /**
  * Integration tests of constructing modules. 
  * 
  * @author peter
  */
-@TestMixin(IntegrationTestMixin)
-class ModulesIntegTests extends GroovyPagesTestCase {
+@Integration
+@TestMixin(GroovyPageUnitTestMixin)
+class ModulesIntegTests {
 	
 	def grailsResourceProcessor
 	def grailsApplication
