@@ -2,8 +2,6 @@ package org.grails.plugin.resources.stash
 
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
-import org.junit.Before
-import org.junit.Test
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -18,7 +16,6 @@ class ScriptStashWriterUnitSpec extends Specification {
     @Shared
     ScriptStashWriter writer
 
-    @Before
     void setup() {
         writer = new ScriptStashWriter()
     }
@@ -37,7 +34,6 @@ class ScriptStashWriterUnitSpec extends Specification {
             thrown NullPointerException
     }
 
-    @Test
     void writeEmptyStash() {
         when:
             StringWriter out = new StringWriter()
@@ -47,7 +43,6 @@ class ScriptStashWriterUnitSpec extends Specification {
             "" == out.toString()
     }
 
-    @Test
     void writeStashWithOneFragment() {
         when:
             StringWriter out = new StringWriter()
@@ -58,7 +53,6 @@ class ScriptStashWriterUnitSpec extends Specification {
             expected == out.toString()
     }
 
-    @Test
     void writeStashWithMultipleFragments() {
         when:
             StringWriter out = new StringWriter()
