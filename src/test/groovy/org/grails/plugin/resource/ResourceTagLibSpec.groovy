@@ -399,15 +399,14 @@ class ResourceTagLibSpec extends Specification {
     }
 
     void testExternalTagCanWorkWithUrlUriOrDir() {
-        when:
+        when: 'We should allow the tag to be used with any of the above attributes present'
             tagLib.external(uri: '/fake/url')
             tagLib.external(url: '/fake/url')
             tagLib.external(file: 'myfile.js')
-
-        then: 'We should allow the tag to be used with any of the above attributes present'
-            Object e = thrown()
-            assert e instanceof GrailsTagException
-            assert !(e instanceof Exception) // We expect this because the rest of the tag isn't mocked.
+        then:
+            Exception e = thrown()
+            !(e instanceof GrailsTagException)
+            e instanceof NullPointerException // We expect this because the rest of the tag isn't mocked.
     }
 
     void testExternalTagRequiresUrlUriOrDir() {
