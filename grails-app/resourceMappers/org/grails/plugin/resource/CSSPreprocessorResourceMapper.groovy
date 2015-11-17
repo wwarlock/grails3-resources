@@ -1,5 +1,6 @@
 package org.grails.plugin.resource
 
+import groovy.util.logging.Slf4j
 import org.grails.plugin.resource.mapper.MapperPhase
 
 /**
@@ -15,6 +16,7 @@ import org.grails.plugin.resource.mapper.MapperPhase
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
+@Slf4j
 class CSSPreprocessorResourceMapper {
 
     def phase = MapperPhase.LINKNORMALISATION
