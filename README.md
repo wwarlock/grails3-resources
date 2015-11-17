@@ -1,3 +1,11 @@
+Tried to convert old [Grails 2 plugin](https://github.com/grails-plugins/grails-resources) to the Grails 3 format.
+With partial succes for now.
+It compiles successfully but some tests are red.
+
+***WARNING !!! That is broken plugin. It DOES NOT work as expected.***
+
+Please do not use it in production.
+But if you can fix the code, you're welcome.
 
 
 [![Build Status](https://api.travis-ci.org/gpc/grails-mail.png)](http://travis-ci.org/grails-plugins/grails-resources)
