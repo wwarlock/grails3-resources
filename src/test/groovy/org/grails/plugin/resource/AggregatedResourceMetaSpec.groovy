@@ -1,7 +1,6 @@
 package org.grails.plugin.resource
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
-import org.junit.Before
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Shared
@@ -18,8 +17,7 @@ class AggregatedResourceMetaSpec extends Specification {
     @Shared
     def module
     
-    @Before
-    void setupTest() {
+    void setup() {
         temporarySubfolder = temporaryFolder.newFolder('test-tmp')
 
         module = new ResourceModule()

@@ -18,7 +18,6 @@ class StyleStashWriterUnitSpec extends Specification {
     @Shared
     StyleStashWriter writer
 
-    @Before
     void setup() {
         writer = new StyleStashWriter()
     }
@@ -37,7 +36,6 @@ class StyleStashWriterUnitSpec extends Specification {
             thrown NullPointerException
     }
 
-    @Test
     void writeEmptyStash() {
         when:
             StringWriter out = new StringWriter()
@@ -47,7 +45,6 @@ class StyleStashWriterUnitSpec extends Specification {
             "" == out.toString()
     }
 
-    @Test
     void writeStashWithOneFragment() {
         when:
             StringWriter out = new StringWriter()
@@ -58,7 +55,6 @@ class StyleStashWriterUnitSpec extends Specification {
             expected == out.toString()
     }
 
-    @Test
     void writeStashWithMultipleFragments() {
         when:
             StringWriter out = new StringWriter()

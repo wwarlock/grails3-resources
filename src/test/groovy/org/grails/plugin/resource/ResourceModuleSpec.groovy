@@ -3,8 +3,6 @@ package org.grails.plugin.resource
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
 
-import org.grails.plugin.resource.module.*
-import org.junit.Before
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -13,8 +11,7 @@ class ResourceModuleSpec extends Specification {
     @Shared
     def svc
     
-    @Before
-    void setupTest() {
+    void setup() {
         svc = new Expando()
         svc.getDefaultSettingsForURI = { uri, type ->
             [:]

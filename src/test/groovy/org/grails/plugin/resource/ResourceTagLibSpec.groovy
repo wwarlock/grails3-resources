@@ -2,8 +2,6 @@ package org.grails.plugin.resource
 
 import grails.test.mixin.TestFor
 
-import org.junit.Before
-
 import org.grails.plugin.resource.util.HalfBakedLegacyLinkGenerator
 import org.grails.taglib.GrailsTagException
 import spock.lang.Specification
@@ -11,8 +9,7 @@ import spock.lang.Specification
 @TestFor(ResourceTagLib)
 class ResourceTagLibSpec extends Specification {
 	
-    @Before
-    void setupTest() {
+    void setup() {
         Object.metaClass.encodeAsHTML = { -> delegate.toString() }
     }
 

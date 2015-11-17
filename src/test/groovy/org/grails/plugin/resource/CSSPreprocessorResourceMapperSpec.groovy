@@ -2,7 +2,6 @@ package org.grails.plugin.resource
 
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
-import org.junit.Before
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Shared
@@ -15,8 +14,7 @@ class CSSPreprocessorResourceMapperSpec extends Specification {
     @Shared
     File temporarySubfolder
 
-    @Before
-    void setupTest() {
+    void setup() {
         temporarySubfolder = temporaryFolder.newFolder('test-tmp')
         //mockLogging(org.grails.plugin.resource.CSSPreprocessorResourceMapper)
     }

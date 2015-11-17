@@ -1,6 +1,5 @@
 package org.grails.plugin.resource
 
-import org.junit.Before
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -25,8 +24,7 @@ class ResourceProcessorAdditionalSpec extends Specification {
     @Shared
     ResourceProcessor processor
 
-    @Before
-    void setupTest() {
+    void setup() {
         //mockLogging(ResourceProcessor, true)
         temporarySubfolder = temporaryFolder.newFolder('test-tmp')
         processor = new ResourceProcessor()
@@ -47,7 +45,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
         processor.adHocIncludes += '/somehack.xml'
     }
 
-    @Test
     void testPrepareURIWithHashFragment() {
         when:
             def r = new ResourceMeta()
@@ -61,7 +58,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             '/somehack.xml#whatever' == meta.linkUrl
     }
 
-    @Test
     void testPrepareAbsoluteURLWithQueryParams() {
         when:
             def r = new ResourceMeta()
@@ -76,7 +72,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
     }
 
     // GRESOURCES-116
-    @Test
     void testPrepareAbsoluteURLWithMissingExtension() {
         when:
             def r = new ResourceMeta()
@@ -94,7 +89,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             [type: 'js']. equals (meta.tagAttributes)
     }
 
-    @Test
     void testBuildResourceURIForGrails1_4() {
         when:
             def r = new ResourceMeta()
@@ -108,7 +102,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             '/somehack.xml#whatever' == meta.linkUrl
     }
 
-    @Test
     void testBuildResourceURIForGrails1_3AndLower() {
         when:
             def r = new ResourceMeta()
@@ -122,7 +115,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             '/somehack.xml#whatever' == meta.linkUrl
     }
 
-    @Test
     void testProcessLegacyResourceIncludesExcludes() {
 
         when:
@@ -156,7 +148,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             }
     }
 
-    @Test
     void testProcessLegacyResourceIncludesExcludesSpecificFile() {
 
         when:
@@ -188,7 +179,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             }
     }
     
-    @Test
     void testDependencyOrdering() {
         when:
             processor.modulesByName = [
@@ -228,7 +218,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             pos('f') > pos('d')
     }
     
-    @Test
     void testWillNot404OnAdhocResourceWhenAccessedDirectlyFromStaticUrl() {
         when:
             processor.adHocIncludes = ["/**/*.xml"]
@@ -248,7 +237,6 @@ class ResourceProcessorAdditionalSpec extends Specification {
             response.contentLength > 0
     }
 
-    @Test
     void testRedirectToActualUrlWithAbsoluteLinkUrlRedirectedToThatUrl() {
         when:
             processor.staticUrlPrefix = "/static"
