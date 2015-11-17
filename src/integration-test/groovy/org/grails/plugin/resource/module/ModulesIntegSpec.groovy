@@ -4,19 +4,20 @@ import grails.test.mixin.integration.Integration
 import grails.test.mixin.integration.IntegrationTestMixin
 import grails.test.mixin.TestMixin
 import grails.test.mixin.web.GroovyPageUnitTestMixin
+import spock.lang.Specification
 
 /**
- * Integration tests of constructing modules. 
- * 
+ * Integration tests of constructing modules.
+ *
  * @author peter
  */
 @Integration
 @TestMixin(GroovyPageUnitTestMixin)
-class ModulesIntegTests {
-	
+class ModulesIntegSpec extends Specification {
+
 	def grailsResourceProcessor
 	def grailsApplication
-	
+
 	protected makeMockResource(uri) {
 		[
 			uri:uri,
@@ -26,19 +27,20 @@ class ModulesIntegTests {
 	}
 
 	void testGrailsApplicationAccessInClosure() {
+		when:
+			def template = '''<html>
+								<head>
+								  <r:require modules="testAppAccess"/>
+								  <r:layoutResources/>
+								</head>
+								<body>
+								  <h1>Hi</h1>
+								</body>
+							  </html>'''
+			def result = applyTemplate(template, [:])
 
-		def template = '''<html>
-							<head>
-							  <r:require modules="testAppAccess"/>
-							  <r:layoutResources/>
-							</head>
-							<body>
-							  <h1>Hi</h1>
-							</body>
-						  </html>'''
-		def result = applyTemplate(template, [:])
-		
-		assertTrue result.contains("<!--${grailsApplication.ENV_DEVELOPMENT}-->")
+		then:
+			result.contains("<!--${grailsApplication.ENV_DEVELOPMENT}-->")
 	}
-	
+
 }

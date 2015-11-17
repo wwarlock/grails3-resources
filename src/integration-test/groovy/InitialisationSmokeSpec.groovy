@@ -1,15 +1,18 @@
+import grails.test.mixin.integration.Integration
 import grails.test.mixin.integration.IntegrationTestMixin
 import grails.test.mixin.TestMixin
+import spock.lang.Specification
 
+@Integration
 @TestMixin(IntegrationTestMixin)
-class InitialisationSmokeTests {
+class InitialisationSmokeSpec extends Specification {
 
     def grailsResourceProcessor
-    
+
     /**
-     * We are testing that the resources plugin operates correctly in an integration testing environment. 
+     * We are testing that the resources plugin operates correctly in an integration testing environment.
      * That is, it does not cause issues for users when installed and they are running integration tests.
-     * 
+     *
      * @see TestOnlyResources
      */
     void testInitialisedOk() {
