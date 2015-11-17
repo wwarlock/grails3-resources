@@ -8,7 +8,7 @@ Please do not use it in production.
 But if you can fix the code, you're welcome.
 
 
-[![Build Status](https://api.travis-ci.org/gpc/grails-mail.png)](http://travis-ci.org/grails-plugins/grails-resources)
+[![Build Status](https://api.travis-ci.org/gpc/grails-mail.png)](https://travis-ci.org/wwarlock/grails3-resources)
 
 Grails Resources framework.
 ===========================
