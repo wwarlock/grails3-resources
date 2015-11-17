@@ -1,10 +1,7 @@
 import grails.test.mixin.integration.Integration
-import grails.test.mixin.integration.IntegrationTestMixin
-import grails.test.mixin.TestMixin
 import spock.lang.Specification
 
 @Integration
-@TestMixin(IntegrationTestMixin)
 class InitialisationSmokeSpec extends Specification {
 
     def grailsResourceProcessor

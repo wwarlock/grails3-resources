@@ -1,12 +1,9 @@
 package org.grails.plugin.resource
 
 import grails.test.mixin.integration.Integration
-import grails.test.mixin.integration.IntegrationTestMixin
-import grails.test.mixin.TestMixin
 import spock.lang.Specification
 
 @Integration
-@TestMixin(IntegrationTestMixin)
 class ResourceProcessorIntegSpec extends Specification {
 
     def grailsResourceProcessor
