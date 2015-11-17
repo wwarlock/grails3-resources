@@ -1,0 +1,12 @@
+language: groovy
+jdk:
+- openjdk7
+- openjdk6
+- oraclejdk7
+before_script:
+- rm -rf target
+script: ./travis-build.sh
+env:
+  global:
+  - GIT_NAME="Dmitriy Aleshkowsky"
+  - GIT_EMAIL="to.wwarlock@gmail.com"
