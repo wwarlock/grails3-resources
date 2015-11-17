@@ -5,11 +5,14 @@ import grails.test.mixin.web.GroovyPageUnitTestMixin
 import grails.test.mixin.TestMixin
 import org.grails.plugin.resources.stash.StashManager
 import org.grails.plugin.resources.stash.StashWriter
+import spock.lang.Shared
 import spock.lang.Specification
 
 @Integration
 @TestMixin(GroovyPageUnitTestMixin)
 class ResourceTagLibIntegSpec extends Specification {
+
+    @Shared
     def grailsResourceProcessor
 
     void setup() {
