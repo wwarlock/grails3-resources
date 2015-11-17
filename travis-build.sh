@@ -1,10 +1,8 @@
 #!/bin/bash
 set -e
 rm -rf *.zip
-./grailsw refresh-dependencies --non-interactive
-./grailsw test-app --non-interactive
-./grailsw package-plugin --non-interactive
-./grailsw doc --pdf --non-interactive
+./gradlew clean assemble test integrationTest
+./gradlew groovydoc javadoc
 
 filename=$(find . -name "grails-*.zip" | head -1)
 filename=$(basename $filename)
@@ -39,7 +37,8 @@ if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_REPO_SLUG == "grails-plugins/grails-
   fi
 
 
-  ./grailsw publish-plugin --no-scm --allow-overwrite --non-interactive
+# TODO rewrite to correct settings 
+#  ./gradlew publish
 else
   echo "Not on master branch, so not publishing"
   echo "TRAVIS_BRANCH: $TRAVIS_BRANCH"
