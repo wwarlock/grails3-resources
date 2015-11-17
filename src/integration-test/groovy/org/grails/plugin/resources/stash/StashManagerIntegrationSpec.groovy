@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServletRequest
 class StashManagerIntegrationSpec extends Specification {
 
     void shouldBeInitializedWithStashWriterForScripts() {
-        expected:
+        expect:
             StashManager.STASH_WRITERS["script"] instanceof ScriptStashWriter
     }
 
     void shouldBeInitializedWithStashWriterForStyles() {
-        expected:
+        expect:
             StashManager.STASH_WRITERS["style"] instanceof StyleStashWriter
     }
 
