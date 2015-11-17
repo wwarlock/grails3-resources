@@ -13,7 +13,8 @@ import spock.lang.Specification
 class ResourceTagLibIntegSpec extends Specification {
 
     @Shared
-    def grailsResourceProcessor
+    // TODO Maybe mocking here is incorrect, I think it must got from application context
+    def grailsResourceProcessor = Mock(ResourceProcessor)
 
     void setup() {
         // reload all modules with bundling applied to them
