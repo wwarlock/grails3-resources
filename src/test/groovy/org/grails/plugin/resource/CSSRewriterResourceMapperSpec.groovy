@@ -34,8 +34,7 @@ class CSSRewriterResourceMapperSpec extends Specification {
                     def newRes = new ResourceMeta(actualUrl: s)
                     r.declaringResource = declRes
                     if (postProc) postProc(newRes)
-                    assertEquals 'CSS rewriter did not set declaring resource correctly',
-                        r.sourceUrl, declRes
+                    assert r.sourceUrl == declRes, 'CSS rewriter did not set declaring resource correctly'
                     return newRes
                 },
                 config : [ rewrite: [css: true] ]
