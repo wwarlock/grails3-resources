@@ -115,13 +115,13 @@ class ResourceTagLibIntegSpec extends Specification {
             String result = applyTemplate(template)
 
         then:
-            'direct dependency "GPRESOURCES-207_module_A" - resource for disposition C' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_A.js")
-            'direct dependency "GPRESOURCES-207_module_A" - resource for disposition D' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_A_disposition_D.js")
-            'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition C' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_C.js")
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_A.js"), 'direct dependency "GPRESOURCES-207_module_A" - resource for disposition C'
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_A_disposition_D.js"), 'direct dependency "GPRESOURCES-207_module_A" - resource for disposition D'
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_C.js"), 'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition C'
             // disposition B -- only via transitive dependency
-            'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition B' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_B.js")
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_B.js"), 'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition B'
             // disposition A -- only via transitive dependency
-            'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition A' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_A.js")
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_A.js"), 'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition A'
     }
 
     void testDispositionsOfTransitiveDependenciesWithStashedResource() {
@@ -142,14 +142,14 @@ class ResourceTagLibIntegSpec extends Specification {
             new File('/tmp/testout.txt').text=result
 
         then:
-            'direct dependency "GPRESOURCES-207_module_A" - resource for disposition C' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_A_disposition_C.js")
-            'direct dependency "GPRESOURCES-207_module_A" - resource for disposition D' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_A_disposition_D.js")
-            'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition C' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_C.js")
-            'stashed script - disposition B' == result.contains("/*stashed*/")
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_A_disposition_C.js"), 'direct dependency "GPRESOURCES-207_module_A" - resource for disposition C'
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_A_disposition_D.js"), 'direct dependency "GPRESOURCES-207_module_A" - resource for disposition D'
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_C.js"), 'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition C'
+            assert result.contains("/*stashed*/"), 'stashed script - disposition B'
             // disposition B -- via transitive dependency and stashed script
-            'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition B' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_B.js")
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_B.js"), 'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition B'
             // disposition A -- only via transitive dependency
-            'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition A' == result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_A.js")
+            assert result.contains("/static/_bundle-bundle_GPRESOURCES-207_module_B_disposition_A.js"), 'transitive dependency "GPRESOURCES-207_module_B" - resource for disposition A'
     }
 
 
