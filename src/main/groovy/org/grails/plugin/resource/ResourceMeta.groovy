@@ -1,8 +1,6 @@
 package org.grails.plugin.resource
 
-import java.net.URL;
-
-import org.slf4j.LoggerFactory
+import groovy.util.logging.Slf4j
 import org.springframework.core.io.Resource
 import org.springframework.core.io.UrlResource
 import org.apache.commons.io.FilenameUtils
@@ -18,12 +16,11 @@ import org.grails.plugin.resource.mapper.ResourceMapper
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
+@Slf4j
 class ResourceMeta {
 
     static final PROCESSED_BY_PREFIX = 'processed.by.'
     
-    def log = LoggerFactory.getLogger(ResourceMeta)
-
     /**
      * The optional module-unique id
      */

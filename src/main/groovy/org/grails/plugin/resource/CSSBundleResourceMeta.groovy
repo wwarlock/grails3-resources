@@ -1,8 +1,6 @@
 package org.grails.plugin.resource
 
-import org.apache.commons.logging.LogFactory
-
-import org.apache.commons.io.FilenameUtils
+import groovy.util.logging.Slf4j
 
 /**
  * Holder for info about a resource that is made up of other resources
@@ -10,9 +8,8 @@ import org.apache.commons.io.FilenameUtils
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
+@Slf4j
 class CSSBundleResourceMeta extends AggregatedResourceMeta {
-
-    def log = LogFactory.getLog(this.class)
 
     @Override
     void beginPrepare(grailsResourceProcessor) {

@@ -1,6 +1,6 @@
 package org.grails.plugin.resource
 
-import org.apache.commons.logging.LogFactory
+import groovy.util.logging.Slf4j
 
 /**
  * This class is used to parse out and replace CSS links
@@ -8,9 +8,8 @@ import org.apache.commons.logging.LogFactory
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
+@Slf4j
 class CSSLinkProcessor {
-    
-    def log = LogFactory.getLog(CSSLinkProcessor)
     
     // We need to successfully match any kind of @import and url(), mappers are responsible for checking type
     static CSS_URL_PATTERN = ~/(?:(@import\s*['"])(.+?)(['"]))|(url\(\s*['"]?)(.+?)(['"]?\s*\))/

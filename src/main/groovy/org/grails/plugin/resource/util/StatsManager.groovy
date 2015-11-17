@@ -1,6 +1,6 @@
 package org.grails.plugin.resource.util
 
-import org.apache.commons.logging.LogFactory
+import groovy.util.logging.Slf4j
 
 /**
  * Manager of statistics on loading and mapping.
@@ -9,8 +9,8 @@ import org.apache.commons.logging.LogFactory
  * Date: 3/31/13
  * Time: 12:07 PM
  */
+@Slf4j
 class StatsManager {
-  def log = LogFactory.getLog(StatsManager)
 
   Map statistics = [:]
 

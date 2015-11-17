@@ -3,6 +3,7 @@ package grails.resources
 import grails.plugins.*
 
 import grails.util.Environment
+import groovy.util.logging.Slf4j
 import org.grails.plugin.resource.util.HalfBakedLegacyLinkGenerator
 import org.springframework.core.io.FileSystemResource
 import org.springframework.util.AntPathMatcher
@@ -15,6 +16,7 @@ import java.util.concurrent.TimeUnit
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
+@Slf4j
 class GrailsResourcesGrailsPlugin extends Plugin {
 
     static DEFAULT_URI_PREFIX = 'static'

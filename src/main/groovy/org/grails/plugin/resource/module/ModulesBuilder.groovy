@@ -1,6 +1,6 @@
 package org.grails.plugin.resource.module
 
-import org.slf4j.LoggerFactory
+import groovy.util.logging.Slf4j
 
 /**
  * Implements the resource modules DSL.
@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
+@Slf4j
 class ModulesBuilder implements GroovyInterceptable {
     
     private _modules
@@ -20,9 +21,7 @@ class ModulesBuilder implements GroovyInterceptable {
     private boolean _strict
     
     static METHODNAME_OVERRIDES = 'overrides'
-    
-    private final log = LoggerFactory.getLogger(this.class.name)
-    
+
     ModulesBuilder(List modules, strict = false) {
         _modules = modules
         _strict = strict

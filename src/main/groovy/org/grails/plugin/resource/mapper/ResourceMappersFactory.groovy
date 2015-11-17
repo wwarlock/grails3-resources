@@ -1,9 +1,8 @@
 package org.grails.plugin.resource.mapper
 
 import grails.spring.BeanBuilder
-import org.grails.plugin.resources.artefacts.ResourceMapperClass
+import groovy.util.logging.Slf4j
 import java.lang.reflect.Modifier
-import org.slf4j.LoggerFactory
 
 /**
  * This creates the ResourceMapper facades for each resource mapper artefact and puts them into the bean context
@@ -11,11 +10,10 @@ import org.slf4j.LoggerFactory
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
+@Slf4j
 class ResourceMappersFactory {
 
     static List<ResourceMapper> createResourceMappers(grailsApplication, mappersConfig) {
-        
-        def log = LoggerFactory.getLogger('org.grails.plugin.resource.mapper.ResourceMappersFactory')
         
         // filter out abstracts
         def resourceMapperClasses = grailsApplication.resourceMapperClasses.findAll {

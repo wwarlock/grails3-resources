@@ -2,7 +2,7 @@ package org.grails.plugin.resource
 
 import grails.util.Environment
 import grails.util.Holders
-import groovy.util.logging.Commons
+import groovy.util.logging.Slf4j
 
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentMap
@@ -36,7 +36,7 @@ import com.googlecode.concurrentlinkedhashmap.ConcurrentLinkedHashMap
  * @author Marc Palmer (marc@grailsrocks.com)
  * @author Luke Daley (ld@ldaley.com)
  */
-@Commons
+@Slf4j
 class ResourceProcessor implements InitializingBean, ServletContextAware {
 
     static transactional = false

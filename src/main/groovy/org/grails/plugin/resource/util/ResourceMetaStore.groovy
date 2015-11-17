@@ -1,6 +1,6 @@
 package org.grails.plugin.resource.util
 
-import org.apache.commons.logging.LogFactory
+import groovy.util.logging.Slf4j
 
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CountDownLatch
@@ -14,8 +14,8 @@ import org.grails.plugin.resource.ResourceMeta
  *
  * @author Marc Palmer (marc@grailsrocks.com)
  */
+@Slf4j
 class ResourceMetaStore {
-    def log = LogFactory.getLog(this.class)
 
     Map latches = new ConcurrentHashMap()
     Map resourcesByURI = new ConcurrentHashMap()
